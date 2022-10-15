@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins';
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+header {
+    background-color: white;
+    color: #001e62;
+    display: flex;
+    padding: 25px;
+}
+
+header img {
+    max-width: 300px;
+}
+
+header .name {
+    flex: 1;
+    font-size: 35px;
+    justify-content: flex-start;
+    max-height: 300px;
+    align-items: center;
+}
+
+header .nav {
+    display: flex;
+}
+
+header .nav-item {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    padding: 10px;
+    align-items: center;
+    text-transform: uppercase;
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+header .nav .nav-item {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    padding: 10px;
+    align-items: center;
+    text-transform: uppercase;
+    margin-left: 25px;
+    font-size: 20px;
+    color: #001e62;
+}
+
+/* header .nav .nav-item:hover {
+    background-color: var(--primary);
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+} */
+
+.banner-image img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    /* align-items: center;
+    width: 80%;
+    height: 600px; */
+}
+
+.info {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    /* text-align: center; */
+}
+
+.info img {
+    width: 80%;
+    height: 80%;
+    padding-bottom: 5%;
+}
+
+.title {
+    text-align: center;
+}
+
+.neil-wrapper {
+    text-align: center;
+}
+
+.about-me {
+    font-size: 18px;
+}
+
+.states {
+    stroke-width: 1px;
+    stroke: white;
+    fill: grey;
+    cursor: pointer;
+}
+
+.state:hover, .state.highlighted {
+    fill: tomato;
+}
+
+.map {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 80%; */
+}
+
+#tooltip-container {
+    position: absolute;
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    border: 1px solid;
+    display: none;
+    z-index: 100;
+}
+
+#gridtip-container {
+    position: absolute;
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    border: 1px solid;
+    z-index: 100;
+    display: none;
+}
+
+.tooltip_key {
+    font-weight: bold;
+}
+
+.tooltip_value {
+    margin-left: 20px;
+    float: right;
+}
+
+.grid {
+    overflow: visible;
+}
+
+.grid-g {
+    overflow: visible;
+}

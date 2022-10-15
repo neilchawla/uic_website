@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Neil Chawla</title>
+        <link rel="stylesheet" href="./css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Archivo:500|Open+Sans:300,700" rel="stylesheet">
+        <script src="./js/app.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div class="name">
+                <a href="https://www.uic.edu/"><img src="./img/logo.svg"/></a>
+            </div>
+
+            <div class="nav">
+                <a class="nav-item active" href="./index.html">Home</a>
+                <a class="nav-item" href="./visualization.html">Visualization</a>
+                <!-- <a class="nav-item" href="./blackHat.html">Black Hat</a>
+                <a class="nav-item" href="./whiteHat.html">White Hat</a> -->
+                <a class="nav-item" href="./svg.html">SVG</a>
+                <a class="nav-item" href="./flow.html">Flow</a>
+                <a class="nav-item" href="./credits.html">Credits</a>
+            </div>
+        </header>
+        
+        <section class="info">
+            <h1 class="title">SVG</h1>
+            <p style="text-align: center;"><i>Click on the shapes to change color</i></p>
+            <div class="line-wrapper">
+                <span></span>
+            </div>
+
+            <svg id="svg-box" viewBox="0 0 1000 1000">
+                <rect width="100%" height="100%" fill="#8dd3c7"></rect>
+                  <circle id="circle" cx="500" cy="500" r="60" fill="#fb8072" stroke="black" onclick="applyEffectCircle(event)" >
+                    <animate attributeName="cx" from="50" to="800" dur="4s" repeatCount="indefinite"/>
+                  </circle>
+
+                  <rect id="square" x="100" y="100" width="120" height="120" fill="#FA532E" stroke="black" onclick="applyEffectSq(event)">
+                    <animate attributeName="x" from="50" to="800" dur="10s" repeatCount="indefinite"/>
+                  </rect>
+
+                  <rect id="rect" x="750" y="750" width="250" height="120" fill="#7A0F21" stroke="black" onclick="applyEffectRect(event)">
+                    <animate attributeName="x" from="50" to="650" dur="7s" repeatCount="indefinite"/>
+                  </rect>
+            </svg>
+        </section>
+
+        <script>
+            function applyEffectCircle() {
+                if (document.getElementById("circle").getAttributeNS(null, "fill") == "#fb8072")
+                    document.getElementById("circle").setAttributeNS(null, "fill", "darkblue");
+                else
+                    document.getElementById("circle").setAttributeNS(null, "fill", "#fb8072");
+            }
+
+            function applyEffectRect() {
+                if (document.getElementById("rect").getAttributeNS(null, "fill") == "#7A0F21")
+                    document.getElementById("rect").setAttributeNS(null, "fill", "darkblue");
+                else
+                    document.getElementById("rect").setAttributeNS(null, "fill", "#7A0F21");
+            }
+
+            function applyEffectSq() {
+                if (document.getElementById("square").getAttributeNS(null, "fill") == "#FA532E")
+                    document.getElementById("square").setAttributeNS(null, "fill", "darkblue");
+                else
+                    document.getElementById("square").setAttributeNS(null, "fill", "#FA532E");
+            }
+        </script>
+        
+    </body>
+</html>
