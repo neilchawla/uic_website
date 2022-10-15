@@ -17,6 +17,8 @@ var colors = [];
 var points = [];
 var zPoints = [];
 var c = [];
+var plane;
+
 var colorScale = d3.scaleSequential(d3.interpolateBlues).domain([0, 30]);
 
 const createParticleSystem = (d) => {
@@ -28,10 +30,11 @@ const createParticleSystem = (d) => {
     scene.add(pointCloud);
 }
 
-const createPlane = () => {
+const createPlane = (d) => {
     const radius = (bounds.maxX - bounds.minX) / 2.0 + 1;
     const height = (bounds.maxY - bounds.minY) + 1;
     const planeGeometry = new THREE.PlaneGeometry(2 * radius, 1.25 * height);
+    planeGeometry.rotateX(-Math.PI * 0.5);
     const planeMaterial = new THREE.MeshBasicMaterial({
         color: 0x889491,
         side: THREE.DoubleSide,
@@ -39,8 +42,8 @@ const createPlane = () => {
         opacity: 0.5
     });
 
-    var plane = new THREE.Mesh(planeGeometry, planeMaterial);
-    plane.geometry.translate(0, (bounds.maxY - bounds.minY) / 30, 0);
+    plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    plane.geometry.translate(0, d - 5, 0);
 
     scene.add(plane);
 }
@@ -118,9 +121,11 @@ const createSlider = (d) => {
         .ticks(10)
         .default(0)
         .on('onchange', val => {
-            // d3.select('#slider').text(d3.format('.2%')(val));
+            scene.remove(plane);
+            createPlane(val);
+
             createScatterPlot(val);
-            brushing(val)
+            brushing(val);
 ;        });
 
     var s = d3.select('#slider')    
@@ -177,7 +182,6 @@ const loadData = (file) => {
        
         createParticleSystem(data);
         createPlane();
-        // createScatterPlot(data[1].Z);
         createSlider(zPoints);
     })
 };
