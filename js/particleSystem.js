@@ -98,10 +98,10 @@ const createScatterPlot = (zAxis) => {
 }
 
 const brushing = (zAxis) => {
-    for(var i = 0; i < data.length; i++) {
+    for(var i = 0; i < zPoints.length; i++) {
         var c = new THREE.Color();
-        if((data[i].Z >= (zAxis - 0.05)) - (data[i].Z < (zAxis + 0.05))) {
-            c.set(colorScale(data[i].concentration));
+        if((zPoints[i] >= (zAxis - 0.05)) - (zPoints[i] < (zAxis + 0.05))) {
+            c.set(colorScale(zPoints[i].concentration));
         } else {
             c.set('rgb(220, 220, 220)');
         }
@@ -125,7 +125,7 @@ const createSlider = (d) => {
             createPlane(val);
 
             createScatterPlot(val);
-            brushing(val);
+            // brushing(val);
 ;        });
 
     var s = d3.select('#slider')    
